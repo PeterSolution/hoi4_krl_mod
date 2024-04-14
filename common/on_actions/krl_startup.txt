@@ -1,0 +1,40 @@
+on_actions = {	
+	on_startup = {
+		effect = {
+			IRE = { give_military_access = ENG }
+			ENG = { give_guarantee = POL }
+			ENG = { give_guarantee = DEN }
+			ENG = { give_guarantee = LUX }
+			ENG = { give_guarantee = BEL }
+			ENG = { give_guarantee = HOL }
+		}	
+
+		effect = {
+			every_country = {
+				limit = {
+					is_major = no
+					NOT = { tag = SPR }
+				}
+				add_ideas = krl_minor
+			}
+			
+			SPR = { add_ideas = krl_startup_spr }
+		}	
+
+		effect = {
+			every_country = {
+				limit = {
+					is_major = yes
+					NOT = { tag = FRA }
+					NOT = { tag = SOV }
+					NOT = { tag = ENG }
+				}
+				add_ideas = krl_major
+			}
+			
+			FRA = { add_ideas = krl_startup_fra }
+			SOV = { add_ideas = krl_startup_sov }
+			ENG = { add_ideas = krl_startup_eng }
+		}		
+	}	
+}

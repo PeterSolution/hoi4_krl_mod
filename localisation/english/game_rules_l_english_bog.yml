@@ -1,0 +1,13 @@
+﻿ l_english:
+ #bog additions:
+ bog_annex_decisions:0 "Annexation Decisions"
+ bog_annex_BRA:0 "Annexation of Brazil"
+ bog_annex_TAN:0 "Annexation of Tanna Tuva"
+ bog_annex_MON:0 "Annexation of Mongolia"
+ bog_annex_IRE:0 "Annexation of Ireland"
+ bog_annex_MAL:0 "Annexation of British Malaya"
+ bog_annex_PHI:0 "Annexation of the Philippines"
+ bog_annex_MEN:0 "Annexation of the Mengkukuo"
+ bog_annex_MON_NO:0 "Vanilla"
+ bog_annex_MON_YES:0 "Soviets Annex Mongolia"
+ bog_ENG_keep_territories:0 "UK territories"

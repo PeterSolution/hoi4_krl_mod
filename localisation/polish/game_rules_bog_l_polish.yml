@@ -1,0 +1,13 @@
+﻿ l_polish:
+ #bog additions:
+ bog_annex_decisions:0 "Decyzje o aneksji
+ bog_annex_BRA:0 "Aneksja Brazylii"
+ bog_annex_TAN:0 "Aneksja Tanna Tuvy"
+ bog_annex_MON:0 "Aneksja Mongolii"
+ bog_annex_IRE:0 "Aneksja Irlandii"
+ bog_annex_MAL:0 "Aneksja Malezji Brytyjskiej"
+ bog_annex_PHI:0 "Aneksja Filipin"
+ bog_annex_MEN:0 "Aneksja Mengkukuo"
+ bog_annex_MON_NO:0 "Vanilla"
+ bog_annex_MON_YES:0 "Sowiecki anektują Mongolię"
+ bog_ENG_keep_territories:0 "Angielskie terytoria pozaeuropejskie"

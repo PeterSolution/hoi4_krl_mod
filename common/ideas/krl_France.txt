@@ -1,0 +1,156 @@
+ideas = {
+	country = {
+		KRL_Fra_Morale_1 = {
+			name = Fra_Morale
+			allowed = {
+				always=no
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				army_org_factor = -0.1
+			}
+		}
+		
+		KRL_Fra_Morale_2 = {
+			name = Fra_Morale
+			allowed = {
+				always=no
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				army_org_factor = -0.2
+			}
+		}
+		
+		KRL_Fra_Morale_3 = {
+			name = Fra_Morale
+			allowed = {
+				always=no
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				army_org_factor = -0.3
+			}
+		}
+		
+		KRL_Fra_Morale_4 = {
+			name = Fra_Morale
+			allowed = {
+				always=no
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				army_org_factor = -0.4
+			}
+		}
+		
+		KRL_Fra_Morale_5 = {
+			name = Fra_Morale
+			allowed = {
+				always=no
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				army_org_factor = -0.5
+			}
+		}
+		
+		KRL_Fra_Morale_6 = {
+			name = Fra_Morale
+			allowed = {
+				always=no
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				army_org_factor = -0.6
+			}
+		}
+		
+		KRL_Fra_Morale_7 = {
+			name = Fra_Morale
+			allowed = {
+				always=no
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				army_org_factor = -0.7
+			}
+		}
+		
+		KRL_Fra_Morale_8 = {
+			name = Fra_Morale
+			allowed = {
+				always=no
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				army_org_factor = -0.8
+			}
+		}
+		
+		KRL_Fra_Morale_9 = {
+			name = Fra_Morale
+			allowed = {
+				always=no
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				army_org_factor = -0.9
+			}
+		}
+		
+		KRL_Fra_Morale_10 = {
+			name = Fra_Morale
+			allowed = {
+				always=no
+			}
+
+			removal_cost = -1
+
+			picture = generic_manpower_bonus
+
+			modifier = {
+				army_org_factor = -1.0
+			}
+		}
+		
+
+		
+	}	
+}

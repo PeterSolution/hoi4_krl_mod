@@ -1,0 +1,135 @@
+ideas = {
+	country = {
+		#other
+		krl_neutral = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			picture = air_support_focus	
+
+			modifier = {
+				justify_war_goal_time = 100
+				enemy_justify_war_goal_time = 100
+				enemy_operative_capture_chance_factor = 100
+				ai_get_ally_desire_factor  = -1000
+				ai_join_ally_desire_factor = -1000
+			}
+		}	
+	}
+	
+	country = {
+		#other
+		krl_major = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_manpower_bonus	
+
+			modifier = {
+				send_volunteer_size = 3
+				special_forces_cap_flat = 240
+			}
+		}	
+	}	
+	
+	country = {
+		#other
+		krl_minor = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_manpower_bonus	
+
+			modifier = {
+				send_volunteer_size = 1
+				special_forces_cap_flat = 140
+			}
+		}	
+	}	
+	
+	country = {
+		#other
+		krl_startup_sov = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_manpower_bonus	
+
+			modifier = {
+				send_volunteer_size = 5
+				special_forces_cap_flat = 240
+			}
+		}	
+	}
+	
+	country = {
+		#other
+		krl_startup_fra = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_manpower_bonus	
+
+			modifier = {
+				send_volunteer_size = 5
+				special_forces_cap_flat = 240
+				min_export = -1.0
+			}
+		}	
+	}
+	
+	country = {
+		#other
+		krl_capitulated_fra = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_manpower_bonus	
+
+			modifier = {
+				send_volunteer_size = 5
+				special_forces_cap_flat = 240
+			}
+		}	
+	}	
+
+	country = {
+		#other
+		krl_startup_eng = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_manpower_bonus	
+
+			modifier = {
+				send_volunteer_size = 3
+				special_forces_cap_flat = 240
+				surrender_limit = 1
+				max_surrender_limit_offset = 0.02
+			}
+		}	
+	}	
+	
+	country = {
+		#other
+		krl_startup_spr = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_manpower_bonus	
+
+			modifier = {
+				send_volunteer_size = 99
+				special_forces_cap_flat = 100
+			}
+		}	
+	}
+}

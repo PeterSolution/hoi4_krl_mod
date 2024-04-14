@@ -1,0 +1,22 @@
+﻿l_english:
+
+ kalachsov.1.t: "Pierwsza fala mobilizacji" 
+ kalachsov.3.desc: "Panstwa osi przebily sie przez nasze linie. Zmobilizujemy wiecej ludzi do walki z nimi"
+ kalachsov.2.t: "Druga fala mobilizacji"
+ kalachsov.2.desc: "Doswiadczenie jakie zdobylismy podczas ostatniej fali mobilizacji pozwoli nam lepiej przygotowac sie do wygrania wojny. Zmobilizujemy jeszcze wiecej ludzi by wygrac ta wojne"
+ kalachsov.3.a: "Do dziela"
+ sov_industry_1: "Sowiecki przemysl"
+ sov_industry_2: "Sowiecki przemysl"
+ sov_industry_3: "Sowiecki przemysl"
+ sov_industry_4: "Sowiecki przemysl"
+ sov_industry_5: "Sowiecki przemysl"
+ ger_luftwaffe: "luftwaffe"
+ krl_major: "Major Country"
+ krl_minor: "Minor Country"
+ krl_startup_sov: "USSR"
+ krl_startup_fra: "France" 
+ krl_startup_eng: "United Kingdom"
+ krl_startup_spr: "Spain" 
+ krl_capitulated_fra: "Free France" 
+ Fra_Morale: "Army morale is collapsing"
+ 

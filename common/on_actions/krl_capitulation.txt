@@ -1,0 +1,282 @@
+on_actions = {
+	on_state_control_changed = {
+		# losing control of England gives victory plan to USA
+		effect = {
+			if = { #England loses Mainland
+				limit = {
+					FROM = {
+						original_tag = ENG
+					}
+					FROM.FROM = {
+						is_owned_by = ENG
+					}
+				}
+				if = { #lost control
+					limit = {
+						USA = { NOT = { has_idea = victory_plan_europe } }
+						125 = { NOT = { is_fully_controlled_by = ENG }	}
+						126 = { NOT = { is_fully_controlled_by = ENG }	}	
+					}					
+					USA = { 
+						#add_ideas = victory_plan_europe 
+						#add_to_war = { targeted_alliance = ENG enemy = GER hostility_reason = asked_to_join }
+					}	
+					ENG = {
+						add_to_faction = USA
+					}
+				}
+			}
+			else_if = { #Englad regains Mainland
+				limit = {
+					ROOT = {
+						original_tag = ENG
+					}
+					FROM.FROM = {
+						is_owned_by = ENG
+						is_core_of = ENG
+					}
+				}
+				if = { #gain control
+					limit = {
+						USA = { has_idea = victory_plan_europe } 
+						OR = {
+							125 = { is_fully_controlled_by = ENG }
+							126 = { is_fully_controlled_by = ENG }	
+						}
+					}	
+					USA = { remove_ideas = victory_plan_europe }						
+				}
+			}			
+		}	
+
+		#Spawn Royal Guard
+		effect = { #England loses 2 main cities
+			if = { 
+				limit = {			
+					FROM = {
+						NOT = { has_country_flag = royal_guard_spawned }
+						original_tag = ENG
+					}
+					FROM.FROM = {
+						is_owned_by = ENG
+					}
+				}
+				if = { #lost control
+					limit = {
+						FROM = { surrender_progress > 0.3 }
+					}						
+					FROM = {
+						set_country_flag = royal_guard_spawned
+
+						division_template = {
+							name = "Royal Guard"
+							priority = 2
+							division_names_group = ENG_INF_01
+							regiments = {
+								infantry = { x = 0 y = 0 }
+								infantry = { x = 0 y = 1 }
+								infantry = { x = 0 y = 2 }
+					
+								infantry = { x = 1 y = 0 }
+								infantry = { x = 1 y = 1 }
+								infantry = { x = 1 y = 2 }
+					
+								infantry = { x = 2 y = 0 }
+								infantry = { x = 2 y = 1 }
+								infantry = { x = 2 y = 2 }				
+							}
+							support = {
+								engineer = { x = 0 y = 0 }
+								anti_air = { x = 0 y = 1 }
+								anti_tank = { x = 0 y = 2 }	
+								artillery = { x = 0 y = 3 }		
+								recon = { x = 0 y = 4 }					
+							}
+						}
+						
+						random_owned_controlled_state = {
+							prioritize = { 131 }
+							limit = { PREV = { has_full_control_of_state = PREV } }
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+						}	
+
+						random_owned_controlled_state = {
+							prioritize = { 131 }
+							limit = { PREV = { has_full_control_of_state = PREV } }
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+						}
+
+						random_owned_controlled_state = {
+							prioritize = { 131 }
+							limit = { PREV = { has_full_control_of_state = PREV } }
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+							create_unit = {
+								division = "division_template = \"Royal Guard\" start_experience_factor = 1.0 start_equipment_factor = 1.0" 
+								owner = PREV
+							}		
+						}						
+					}
+				}
+			}			
+		}		
+	}
+	
+	on_capitulation = {
+		# Englad capitulation
+		effect = {
+			if = {
+				limit = {				
+					ROOT = {
+						original_tag = ENG
+					}
+				}
+				ENG = {
+					add_offsite_building = { type = industrial_complex level = 10 }
+					add_offsite_building = { type = arms_factory level = 10 }
+				}
+			}
+		}
+		
+		# France capitulation
+		effect = {
+			if = {
+				limit = {				
+					ROOT = {
+						original_tag = FRA
+					}
+				}
+				FRA = {
+					add_offsite_building = { type = industrial_complex level = 5 }
+					add_offsite_building = { type = arms_factory level = 5 }
+				}
+			}
+		}
+
+		# Australia capitulation
+		effect = {
+			if = {
+				limit = {				
+					ROOT = {
+						original_tag = AST
+					}
+				}
+				USA = {
+					add_ideas = victory_plan_pacific 
+				}
+			}
+		}			
+	}		
+}

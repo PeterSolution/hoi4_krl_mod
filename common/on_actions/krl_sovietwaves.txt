@@ -1,0 +1,156 @@
+on_actions = {
+	on_state_control_changed = {
+	
+		effect = {
+			if = { #Soviet indrustry1
+				limit = {
+					FROM = {
+						NOT = { has_country_flag = industry1 } 
+						original_tag = SOV
+					}
+					FROM.FROM = {
+						is_owned_by = SOV
+					}
+				}
+				if = { #lost control
+					limit = {
+						SOV = { surrender_progress > 0.14 }
+					}					
+					FROM = { 
+					
+						set_country_flag = industry1
+						
+						add_ideas = sov_industryy_1 	
+					}						
+				}
+			}		
+		}
+		effect = {
+			if = { #Soviet indrustry2
+				limit = {
+					FROM = {
+						NOT = { has_country_flag = industry2 } 
+						original_tag = SOV
+					}
+					FROM.FROM = {
+						is_owned_by = SOV
+					}
+				}
+				if = { #lost control
+					limit = {
+						SOV = { surrender_progress > 0.29 }
+					}					
+					FROM = { 
+					
+						set_country_flag = industry2
+						remove_ideas = sov_industryy_1
+						add_ideas = sov_industryy_2 	
+					}						
+				}
+			}		
+		}
+		effect = {
+			if = { #Soviet indrustry3
+				limit = {
+					FROM = {
+						NOT = { has_country_flag = industry3 } 
+						original_tag = SOV
+					}
+					FROM.FROM = {
+						is_owned_by = SOV
+					}
+				}
+				if = { #lost control
+					limit = {
+						SOV = { surrender_progress > 0.40 }
+					}					
+					FROM = { 
+					
+						set_country_flag = industry3
+						remove_ideas = sov_industryy_2 
+						add_ideas = sov_industryy_3 	
+					}						
+				}
+			}		
+		}
+		effect = {
+			if = { #Soviet indrustry3
+				limit = {
+					FROM = {
+						NOT = { has_country_flag = industry4 } 
+						original_tag = SOV
+					}
+					FROM.FROM = {
+						is_owned_by = SOV
+					}
+				}
+				if = { #lost control
+					limit = {
+						SOV = { surrender_progress > 0.50 }
+					}					
+					FROM = { 
+					
+						set_country_flag = industry4
+						remove_ideas = sov_industryy_3 
+						add_ideas = sov_industryy_4  	
+					}						
+				}
+			}		
+		}	
+
+		effect = {
+			if = { #Soviet first wave mobilization
+				limit = {
+					FROM = {
+						NOT = { has_country_flag = sov_first_wave_spawned } 
+						original_tag = SOV
+					}
+					FROM.FROM = {
+						is_owned_by = SOV
+					}
+				}
+				if = { #lost control
+					limit = {
+						SOV = { surrender_progress > 0.4 }
+					}					
+					FROM = { 
+						set_country_flag = sov_first_wave_spawned
+						country_event = { id = kalachsov.3 }					
+					}						
+				}
+			}		
+		}
+
+
+		effect = {
+			if = { #Soviet third wave mobilization
+				limit = {
+					FROM = {
+						NOT = { has_country_flag = sov_third_wave_spawned } 
+						original_tag = SOV
+					}
+					FROM.FROM = {
+						is_owned_by = SOV
+					}
+				}
+				if = { #lost control
+					limit = {
+						SOV = { surrender_progress > 0.50 }
+					}					
+					FROM = { 
+						set_country_flag = sov_third_wave_spawned						
+						country_event = { id = kalachsov.4 }
+					}						
+				}
+			}		
+		}
+		
+		
+		
+		
+		
+	}
+	
+	
+	
+}

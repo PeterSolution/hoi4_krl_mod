@@ -1,0 +1,14 @@
+auto_tech_rush = {
+	icon = generic_propaganda
+
+	visible = {
+        always = yes
+	}
+}
+france_convoys = {
+	icon = generic_propaganda
+
+	visible = {
+        always = yes
+	}
+}
