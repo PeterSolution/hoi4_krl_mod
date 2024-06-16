@@ -1,0 +1,33 @@
+ideas = {
+	trade_laws = {
+		law = yes
+		use_list_view = yes	
+	
+		always_free_trade = {
+			
+			allowed = {
+				always = no
+			}
+							
+			cost = 6969
+			removal_cost = -1
+			picture = free_trade
+			
+			allowed_to_remove = {
+				always = no
+			}	
+			
+			modifier = {
+				min_export = 0.8
+				industrial_capacity_factory = 0.15
+				industrial_capacity_dockyard = 0.15
+				production_speed_buildings_factor = 0.15
+				research_speed_factor = 0.10
+				civilian_intel_to_others = 40.0
+				navy_intel_to_others = 20.0
+			}			
+			cancel_if_invalid = no
+		}
+	}
+}
+

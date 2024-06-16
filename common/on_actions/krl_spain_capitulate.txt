@@ -1,0 +1,17 @@
+on_actions = {	
+	#SPR capitulation event
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					TAG = SPR
+					NOT = {
+						has_global_flag = SPR_capitulated
+					}
+				}
+
+				SPR_revival = yes				
+			}
+		}
+	}
+}

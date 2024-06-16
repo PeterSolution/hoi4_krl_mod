@@ -1,0 +1,86 @@
+ideas = {
+	country= {
+
+			sov_industryy_1 = {
+
+				name = sov_industry_1
+
+				picture = generic_industrial_concern_2
+
+				allowed = {
+					original_TAG = SOV
+
+				}
+
+
+				modifier = {
+					industrial_capacity_factory = 0.10
+				}
+			}
+			sov_industryy_2 = {
+
+				name = sov_industry_2
+
+				picture = generic_industrial_concern_2
+
+				allowed = {
+					original_TAG = SOV
+
+				}
+
+
+				modifier = {
+					industrial_capacity_factory = 0.20
+				}
+			}
+			sov_industryy_3 = {
+
+				name = sov_industry_3
+
+				picture = generic_industrial_concern_2
+
+				allowed = {
+					original_TAG = SOV
+
+				}
+
+
+				modifier = {
+					industrial_capacity_factory = 0.30
+				}
+			}
+			sov_industryy_4 = {
+
+				name = sov_industry_4
+
+				picture = generic_industrial_concern_2
+
+				allowed = {
+					original_TAG = SOV
+
+				}
+
+
+				modifier = {
+					industrial_capacity_factory = 0.40
+				}
+			}
+			sov_industryy_5 = {
+
+				name = sov_industry_5
+
+				picture = generic_industrial_concern_2
+
+				allowed = {
+					original_TAG = SOV
+
+				}
+
+
+				modifier = {
+					industrial_capacity_factory = 0.50
+				}
+			}
+	}
+
+}

@@ -1,0 +1,10 @@
+######################
+#### Annex miniors####
+######################
+
+lend_lease = {
+	allowed = {
+		original_tag = USA
+	}
+	priority = 1
+}

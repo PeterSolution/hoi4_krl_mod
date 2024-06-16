@@ -1,0 +1,37 @@
+﻿l_english:
+  annex_miniors:0 "Annex country decisions"
+  annex_miniors_eng:0 "Annex country decisions"
+  annex_miniors_usa:0 "Annex country decisions"
+  annex_miniors_jap:0 "Annex country decisions"
+  annex_miniors_sov:0 "Annex country decisions"  
+
+  annex_hun:0 "Annex Hungary"
+  annex_bul:0 "Annex Bulgaria"
+  annex_fin:0 "Annex Finnish industry"
+  back_annex_fin:0 "Give back Finnish industry"
+  annex_rom:0 "Annex Romania"
+  annex_bul_to_ita:0 "Annex Bulgaria to Italy"
+  annex_rom_to_ita:0 "Annex Romania to Italy"
+  annex_bul_to_rom:0 "Annex Bulgaria to Romania"
+  annex_rom_to_bul:0 "Annex Romania to Bulgaria"
+
+  annex_manchuko:0 "Annex Manchuko"
+  annex_siam:0 "Annex Siam"
+
+  annex_mexico:0 "Annex Mexico"
+
+  annex_can:0 "Annex Canada"
+  annex_can_to_saf:0 "Annex Canada to South Africa"
+  annex_saf:0 "Annex South Africa"
+  annex_saf_to_can:0 "Annex South Africa to Canada"
+  annex_saf_to_raj:0 "Annex South Africa to India"
+  annex_saf_to_ast:0 "Annex South Africa to Australia"
+  annex_raj:0 "Annex India"
+  annex_raj_to_ast:0 "Annex India to Australia"
+  annex_ast:0 "Annex Australia"
+  annex_ast_to_raj:0 "Annex Australia to India"
+  annex_nzl:0 "Annex New Zeland"
+  annex_nzl_to_raj:0 "Annex New Zeland to India"
+  annex_nzl_to_ast:0 "Annex New Zeland to Australia"
+  
+  annex_mon_to_sov:0 "Annex Mongolia"  

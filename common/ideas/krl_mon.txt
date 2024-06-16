@@ -1,0 +1,283 @@
+ideas = {
+	
+			
+	country = {
+		
+		
+		mon_industryy_1 = {
+
+				name = mon_industryyy_1
+
+				picture = generic_industrial_concern_2
+
+				allowed = {
+					original_TAG = MON
+
+				}
+
+
+				modifier = {
+					industrial_capacity_factory = 0.05
+				}
+			}
+		mon_industryy_2 = {
+
+				name = mon_industryyy_2
+
+				picture = generic_industrial_concern_2
+
+				allowed = {
+					original_TAG = MON
+
+				}
+
+
+				modifier = {
+					industrial_capacity_factory = 0.10
+				}
+			}
+		mon_industryy_3 = {
+
+				name = mon_industryyy_3
+
+				picture = generic_industrial_concern_2
+
+				allowed = {
+					original_TAG = MON
+
+				}
+
+
+				modifier = {
+					industrial_capacity_factory = 0.15
+				}
+			}
+		mon_industryy_4 = {
+
+				name = mon_industryyy_4
+
+				picture = generic_industrial_concern_2
+
+				allowed = {
+					original_TAG = MON
+
+				}
+
+
+				modifier = {
+					industrial_capacity_factory = 0.20
+				}
+			}
+		mon_industryy_5 = {
+
+				name = mon_industryyy_5
+
+				picture = generic_industrial_concern_2
+
+				allowed = {
+					original_TAG = MON
+
+				}
+
+
+				modifier = {
+					industrial_capacity_factory = 0.25
+				}
+			}
+		
+		break_with_human_wave = {
+			name = break_with_human_wave
+			picture = chi_army_corruption
+			removal_cost = -1
+			
+			allowed = {
+				always = yes
+			}
+			modifier = {
+				cat_mass_assault_cost_factor = 1
+			
+			}
+		}
+		
+	
+		mon_spirit_of_great_khan ={
+			name = spirit_of_great_khan
+			removal_cost = -1
+
+			picture = ast_volunteer_defence_corps
+
+			allowed = {
+				always = no
+			}
+
+			modifier = {
+				cavalry_attack_factor = 0.2
+			}	
+		}
+		
+		
+		mon_spirit_of_great_khan_cultivated ={
+			name = spirit_of_great_khan_cultivated
+			removal_cost = -1
+
+			picture = SOV_second_five_year_plan
+
+			allowed = {
+				always = no
+			}
+
+			modifier = {
+				cavalry_attack_factor = 0.1 
+				cavalry_defence_factor = 0.1
+			}	
+		}	
+
+		mon_modernized_army = {
+			name = modernized_army
+			removal_cost = -1
+
+			picture = SWE_varnplikt
+
+			allowed = {
+				always = no
+			}
+
+			modifier = {
+				army_org_factor = 0.1
+			}	
+		}		
+		
+		mon_industry ={
+			name = mon_industry
+			removal_cost = -1
+
+			picture = generic_improved_industries
+
+			allowed = {
+				always = no
+			}
+
+			modifier = {
+				consumer_goods_factor = -0.15
+			}
+		
+		}
+		
+		mon_factory = {
+			name = mon_factory
+			removal_cost = -1
+			
+			picture = SOV_second_five_year_plan
+			allowed = {
+				always = no
+			}
+			modifier = {
+				global_building_slots = 4
+			}
+		}
+		
+		
+		mon_people = {
+			name = mon_people
+			removal_cost = -1
+			picture = generic_infantry_bonus
+			allowed = {
+				always = no
+			}
+			modifier = {
+				recruitable_population = 0.1
+			}
+		}
+		mongloia_arms_discount = {
+			
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_license_production
+			
+			equipment_bonus = {
+				infantry_equipment = {
+					build_cost_ic = -0.1 instant = yes
+				}
+			}
+		}
+		build_factory = {
+			
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = ARG_construction_guilds
+			
+			modifier = {
+			production_speed_arms_factory_factor = 0.1
+			}
+		}
+		good_aliance = { 
+
+			picture = can_wartime_prices_and_trade_board
+
+			removal_cost = -1
+
+			allowed = {
+				always = no 
+			}
+
+
+			targeted_modifier = {
+				tag = SOV
+				cic_to_target_factor = 0.1
+			}
+		}
+		
+		mongol_develop = {
+			picture = eng_spirit_of_the_industrial_revolution
+
+			removal_cost = -1
+
+			allowed = {
+				always = no 
+			}
+
+
+			modifier = {
+				global_building_slots = 4
+			}
+		}
+		mongol_excav = {
+			picture = ARG_resource_extration_focus
+
+			removal_cost = -1
+
+			allowed = {
+				always = no 
+			}
+
+
+			modifier = {
+				local_resources_factor = 0.1
+			}
+		}
+		soviet_mongol_excav = {
+			picture = generic_exploit_mines
+
+			removal_cost = -1
+
+			allowed = {
+				always = no 
+			}
+
+
+			modifier = {
+				local_resources_factor = 0.05
+			}
+		}
+
+	}
+	
+}

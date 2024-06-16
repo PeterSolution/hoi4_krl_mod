@@ -1,0 +1,6 @@
+NEE = "countries/neutral_nation2.txt"
+NEU = "countries/neutral_nation.txt"
+GP1 = "countries/german_puppet_1.txt"
+GP2 = "countries/german_puppet_2.txt"
+GP3 = "countries/german_puppet_3.txt"
+GP4 = "countries/german_puppet_4.txt"

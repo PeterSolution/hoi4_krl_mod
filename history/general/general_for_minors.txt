@@ -1,0 +1,54 @@
+every_possible_country = {
+	limit = {
+			OR = {
+				tag = ROM
+				tag = HUN
+				tag = BUL
+				tag = FIN
+				tag = SIA
+				tag = MAN
+				tag = MON
+				tag = CAN
+				tag = SAF
+				tag = RAJ
+				tag = AST
+				tag = NZL
+				tag = MEX
+			}		
+	}
+	
+	generate_character = {
+		token_base = generic_1
+		corps_commander = {
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+			traits = { infantry_officer }
+		}
+	}
+	generate_character = {
+		token_base = generic_2
+		corps_commander = {
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+			traits = { cavalry_officer }
+		}
+	}
+
+	generate_character = {
+		token_base = generic_3
+		corps_commander = {
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+			traits = { armor_officer }
+		}
+	}	
+}

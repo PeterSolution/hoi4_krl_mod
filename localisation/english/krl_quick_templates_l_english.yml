@@ -1,0 +1,11 @@
+﻿l_english:
+  QuickTemplates:0 "Quick Division Templates"
+  HIDE:0 "Hide"
+  SHOW:0 "Show"
+  INFANTRY_2W:0 "Division with 2 combat width"
+  INFANTRY_10W:0 "Division with 10 combat width"
+  INFANTRY_20W:0 "Division with 20 combat width"
+  INFANTRY_30W:0 "Division with 30 combat width"
+  INFANTRY_40W:0 "Division with 40 combat width"
+  INFANTRY_50W:0 "Division with 50 combat width"
+  MP_GARRISON:0 "Garrison Division"

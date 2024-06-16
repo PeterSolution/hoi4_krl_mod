@@ -1,0 +1,52 @@
+SPR_revival = {
+	set_global_flag = SPR_capitulated
+
+	if = {
+		limit = {
+			SPD = {
+				has_volunteers_amount_from = {
+					tag = SOV
+					count > 0
+				}
+			}
+		}
+		SOV = {
+			add_ideas = krl_SPR_reparations
+		}
+	}
+
+	if = {
+		limit = {
+			SPD = {
+				has_volunteers_amount_from = {
+					tag = FRA
+					count > 0
+				}
+			}
+		}
+		FRA = {
+			add_ideas = krl_SPR_reparations
+		}
+	}
+
+	set_global_flag = nationalist_victory
+	set_global_flag = SPR_franco_won
+	set_global_flag = scw_over
+
+	hidden_effect = {
+		country_event = { id = lar_news.1 hours = 0 }
+		every_state = {
+			limit = {
+				or = {
+					is_owned_by = SPD
+					is_owned_by = SPC
+					is_owned_by = SPA
+					is_owned_by = SPB
+				}
+			}
+			SPR = {
+				transfer_state = PREV
+			}
+		}
+	}
+}

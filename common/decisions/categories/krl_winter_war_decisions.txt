@@ -1,0 +1,15 @@
+krl_winter_war_decisions = {
+	picture = GFX_decision_cat_picture_FIN_motti_tactics
+	allowed = {
+		OR = {
+			tag = SOV
+			tag = FIN
+		}
+	}
+	visible = {
+		SOV = {
+			has_war_with = FIN
+		}
+		NOT = { has_global_flag = krl_winter_war_ended }
+	}
+}

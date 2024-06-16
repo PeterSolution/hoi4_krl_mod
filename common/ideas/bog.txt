@@ -1,0 +1,25 @@
+ideas = {
+	country = {
+	
+		bog_fra_volunteers = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+
+			cancel = {
+				has_global_flag = scw_over
+			}
+			
+			rule = {
+				can_send_volunteers = yes 
+			}
+
+			picture = FRA_scw_intervention_republicans_focus
+			modifier = {
+				send_volunteers_tension = -1
+			}
+		}
+		
+	}
+}

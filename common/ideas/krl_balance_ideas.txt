@@ -1,0 +1,81 @@
+ideas = {
+	country = {
+		victory_plan_europe = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_infantry_bonus
+			modifier = {
+				industrial_capacity_factory = 0.3
+			}
+		}
+		
+		victory_plan_dday = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_infantry_bonus
+			modifier = {
+				army_org_factor = 0.1
+				out_of_supply_factor = -0.1
+				extra_marine_supply_grace = 240
+				extra_paratrooper_supply_grace = 240
+			}
+		}	
+	
+		victory_plan_pacific = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			picture = generic_infantry_bonus
+			modifier = {
+				industrial_capacity_dockyard = 0.3
+			}
+		}
+		
+		GER_barbarossa_2 = {
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				has_government = fascism
+			}
+
+			removal_cost = -1
+
+			picture = generic_acquire_tanks
+
+			targeted_modifier = {
+				tag = SOV
+				attack_bonus_against = 0.10
+				defense_bonus_against = 0.05				
+			}
+			
+			modifier = {
+				#river_crossing_factor = -0.4
+				#production_speed_supply_node_factor = 0.35
+				#supply_consumption_factor = -0.1				
+			}	
+		}	
+
+		SOV_No_Step_Back = {
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_acquire_tanks
+			
+			modifier = {
+				army_core_defence_factor = 0.3				
+				army_core_attack_factor = 0.1		
+			}	
+		}			
+	}
+}
+

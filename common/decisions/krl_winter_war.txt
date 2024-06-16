@@ -1,0 +1,571 @@
+krl_winter_war_decisions = {
+	krl_winter_war_stalemate = {
+
+		allowed = {
+			OR = {
+				tag = SOV
+				tag = FIN
+			}
+		}
+
+		available = {
+			FIN = {
+				NOT = { has_war_with = SOV }
+			}
+		}
+		is_good = no
+		fire_only_once = no
+		selectable_mission = no
+		days_mission_timeout = 180
+		cancel_trigger = {
+			hidden_trigger = {
+				FIN = {
+					NOT = { has_war_with = SOV }
+				}
+			}
+		}
+
+		activation = {
+			SOV = {
+				has_war_with = FIN
+			}
+			NOT = { has_global_flag = krl_winter_war_ended }
+		}
+
+		timeout_effect = {
+			set_global_flag = krl_winter_war_stalemate
+			set_global_flag = krl_winter_war_ended
+			hidden_effect = {
+				SOV = {
+					white_peace = FIN
+				}
+
+			}
+		}
+	}
+	krl_finland_win_fin = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		allowed = {
+			tag = FIN
+		}
+
+		available = {
+			if = {
+				limit = { 
+					controls_state = 195
+					NOT = { controls_state = 213 }
+				}
+				OR = {
+					NOT = { controls_state = 195 }
+					NOT = { controls_state = 111 }
+					NOT = { controls_state = 146 }
+				}
+			}
+			if = {
+				limit = { 
+					controls_state = 213
+					NOT = { controls_state = 195 }
+				}
+				OR = {
+					NOT = { controls_state = 213 }
+					NOT = { controls_state = 111 }
+					NOT = { controls_state = 146 }
+				}
+			}
+			if = {
+				limit = { 
+					controls_state = 213
+					controls_state = 195
+				}
+				OR = {
+					NOT = { controls_state = 195 }
+					NOT = { controls_state = 213 }
+					NOT = { controls_state = 111 }
+					NOT = { controls_state = 146 }
+				}
+			}
+		}
+
+		activation = {
+			has_war_with = SOV
+			AND = {
+				controls_state = 146
+				controls_state = 111
+				OR = {
+					controls_state = 195
+					controls_state = 213
+				}
+			}
+			NOT = { has_global_flag = krl_winter_war_ended }
+		}
+
+		is_good = yes
+		fire_only_once = no
+		selectable_mission = no
+		days_mission_timeout = 30
+
+		cancel_effect = {
+
+		}
+
+		timeout_effect = {
+			news_event = krl_winter_war_event.2
+			set_global_flag = krl_winter_war_ended
+			hidden_effect = {
+				SOV = {
+					white_peace = FIN
+				}
+				FIN = {
+					army_experience = 100
+				}
+				146 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border_country = SOV
+						}
+					}
+				}
+				150 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border_country = SOV
+						}
+					}
+				}
+				929 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border_country = SOV
+						}
+					}
+				}
+				147 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border_country = SOV
+						}
+					}
+				}
+				148 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border_country = SOV
+						}
+					}
+				}
+				722 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border_country = SOV
+						}
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+		}
+	}
+	krl_finland_win_sov = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		allowed = {
+			tag = SOV
+		}
+
+		available = {
+			if = {
+				limit = {
+					controls_state = 195
+					NOT = { controls_state = 213 }
+				}
+				OR = {
+					controls_state = 213 
+					controls_state = 111 
+					controls_state = 146 
+				}
+			}
+			if = {
+				limit = { 
+					controls_state = 213
+					NOT = { controls_state = 195 }
+				}
+				OR = {
+					controls_state = 195 
+					controls_state = 111 
+					controls_state = 146 
+				}
+			}
+			if = {
+				limit = { 
+					NOT = { controls_state = 213 }
+					NOT = { controls_state = 195 }
+				}
+				OR = {
+					controls_state = 195 
+					controls_state = 213
+					controls_state = 111
+					controls_state = 146
+				}
+			}
+		}
+
+		activation = {
+			has_war_with = FIN
+			OR = {
+				NOT = { controls_state = 213 }
+				NOT = { controls_state = 195 }
+			}
+			NOT = { has_global_flag = krl_winter_war_ended }
+		}
+
+		is_good = no
+		fire_only_once = no
+		selectable_mission = no
+		days_mission_timeout = 30
+
+		cancel_effect = {
+		}
+
+		timeout_effect = {
+		}
+
+		complete_effect = {
+		}
+	}
+
+	krl_soviet_win_sov = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		allowed = {
+			tag = SOV
+		}
+
+		cancel_trigger = {
+			NOT = { has_war_with = FIN }
+		}
+
+		available = {
+			if = {
+				limit = { 
+					controls_state = 146
+					NOT = { controls_state = 111 }
+				}
+				OR = {
+					NOT = { controls_state = 195 }
+					NOT = { controls_state = 213 }
+					NOT = { controls_state = 146 }
+				}
+			}
+			if = {
+				limit = { 
+					controls_state = 111
+					NOT = { controls_state = 146 }
+				}
+				OR = {
+					NOT = { controls_state = 213 }
+					NOT = { controls_state = 111 }
+					NOT = { controls_state = 195 }
+				}
+			}
+			if = {
+				limit = { 
+					controls_state = 111
+					controls_state = 146
+				}
+				OR = {
+					NOT = { controls_state = 195 }
+					NOT = { controls_state = 213 }
+					NOT = { controls_state = 111 }
+					NOT = { controls_state = 146 }
+				}
+			}
+		}
+
+		activation = {
+			has_war_with = FIN
+			AND = {
+				controls_state = 195
+				controls_state = 213
+				OR = {
+					controls_state = 111
+					controls_state = 146
+				}
+			}
+			NOT = { has_global_flag = krl_winter_war_ended }
+		}
+
+		is_good = yes
+		fire_only_once = no
+		selectable_mission = no
+		days_mission_timeout = 30
+
+		cancel_effect = {
+
+		}
+
+		timeout_effect = {
+			news_event = krl_winter_war_event.3
+			set_global_flag = krl_winter_war_ended
+			hidden_effect = {
+				SOV = {
+					set_country_flag = SOV_winter_war_won
+					white_peace = FIN
+					transfer_state = 146
+					transfer_state = 147
+					transfer_state = 722
+					army_experience = 100
+				}
+				146 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border_country = FIN
+						}
+					}
+				}
+				215 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border_country = FIN
+						}
+					}
+				}
+				147 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border_country = FIN
+						}
+					}
+				}
+				213 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border_country = FIN
+						}
+					}
+				}
+				722 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border_country = FIN
+						}
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+
+		}
+	}
+	krl_soviet_win_fin = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		allowed = {
+			tag = FIN
+		}
+
+		cancel_trigger = {
+			NOT = { has_war_with = SOV }
+		}
+
+		available = {
+			if = {
+				limit = {
+					controls_state = 111
+					NOT = { controls_state = 146 }
+				}
+				OR = {
+					controls_state = 195 
+					controls_state = 213
+					controls_state = 146 
+				}
+			}
+			if = {
+				limit = { 
+					controls_state = 146
+					NOT = { controls_state = 111 }
+				}
+				OR = {
+					controls_state = 195 
+					controls_state = 111 
+					controls_state = 213 
+				}
+			}
+			if = {
+				limit = { 
+					NOT = { controls_state = 111 }
+					NOT = { controls_state = 146 }
+				}
+				OR = {
+					controls_state = 195 
+					controls_state = 213
+					controls_state = 111
+					controls_state = 146
+				}
+			}
+		}
+
+		activation = {
+			has_war_with = SOV
+			OR = {
+				NOT = { controls_state = 111 }
+				NOT = { controls_state = 146 }
+			}
+			NOT = { has_global_flag = krl_winter_war_ended }
+		}
+
+		is_good = no
+		fire_only_once = no
+		selectable_mission = no
+		days_mission_timeout = 30
+
+		cancel_effect = {
+		}
+
+		timeout_effect = {
+
+		}
+
+		complete_effect = {
+		}
+	}
+	krl_soviet_fin_surrender = {
+		icon = GFX_decision_hol_draw_up_staff_plans
+		allowed = {
+			tag = FIN
+		}
+
+		available = {
+			surrender_progress < 0.5
+		}
+
+		activation = {
+			has_war_with = SOV
+			surrender_progress > 0.5
+			NOT = { has_global_flag = krl_winter_war_ended }
+		}
+
+		is_good = yes
+		fire_only_once = no
+		selectable_mission = no
+		days_mission_timeout = 1
+
+		cancel_effect = {
+		}
+
+		timeout_effect = {
+			news_event = krl_winter_war_event.3
+			set_global_flag = krl_winter_war_ended
+			hidden_effect = {
+				SOV = {
+					set_country_flag = SOV_winter_war_won
+					white_peace = FIN
+					transfer_state = 146
+					transfer_state = 147
+					transfer_state = 722
+					army_experience = 100
+				}
+				146 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border_country = FIN
+						}
+					}
+				}
+				215 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border_country = FIN
+						}
+					}
+				}
+				147 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border_country = FIN
+						}
+					}
+				}
+				213 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border_country = FIN
+						}
+					}
+				}
+				722 = {
+					add_building_construction = {
+						type = bunker
+						level = 3
+						instant_build = yes
+						province = {
+							all_provinces = yes
+							limit_to_border_country = FIN
+						}
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+		}
+	}
+}

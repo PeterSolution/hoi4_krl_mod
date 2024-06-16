@@ -1,0 +1,1771 @@
+focus_tree = {
+	id = mongolia_focus_tree
+	
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = mon
+			has_dlc = "Man the Guns"
+		}
+	}
+	default=no
+	
+	focus = {
+		id = mon_infra
+
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 1
+		y = 0
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+
+		}
+
+		bypass = {
+			custom_trigger_tooltip =  {
+				tooltip = infrastructure_effort_tt
+				all_owned_state = {
+					free_building_slots = {
+						building = infrastructure
+						size < 2
+					}
+				}
+			}
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		complete_tooltip = {
+			
+			every_state = {
+				limit = { has_state_flag = SOV_infrastructure_effort_3Inf }
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = { #TODO_Manu: This is just copy-pasted from the old focus -> Is this what we want?
+			if = {
+				limit = {
+					all_owned_state = {
+						infrastructure > 2
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = infrastructure
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes						
+					}
+					set_state_flag = SOV_infrastructure_effort_3Inf
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = infrastructure
+							size > 1
+						}
+					}
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = SOV_infrastructure_effort_3Inf
+				}				
+			}
+			random_owned_controlled_state = {
+				limit = {
+					infrastructure < 3
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = SOV_infrastructure_effort_3Inf	
+			}
+			
+		}
+	}
+
+	focus = {
+		id = mon_heavy_industry
+
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 2
+		y = 0
+		relative_position_id = mon_infra
+		cost = 5
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		complete_tooltip = {
+			every_state = {
+				limit = { 
+					has_state_flag = SOV_finish_five_year_plan_2IC 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = { #TODO_Manu: This is just copy-pasted from the old focus -> Is this what we want?
+			IF = {
+				limit = {
+					any_owned_state = {
+						is_controlled_by = ROOT 
+						industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+						NOT = { has_state_flag = SOV_finish_five_year_plan_2IC }
+					}
+				}
+				
+			}
+			ELSE = {
+				random_owned_controlled_state = {
+					limit = {
+						# industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = SOV_finish_five_year_plan_2IC
+				}
+			}
+			IF = {
+				limit = {
+					check_variable = { num_owned_states > 1}
+					any_owned_state = {
+						is_controlled_by = ROOT 
+						industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+						NOT = { has_state_flag = SOV_finish_five_year_plan_2IC }
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+						NOT = { has_state_flag = SOV_finish_five_year_plan_2IC }
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = SOV_finish_five_year_plan_2IC
+				}
+			}
+			
+		}
+	}
+
+	focus = {
+		id = mon_finish_the_five_year_plan
+
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = mon_infra }
+		prerequisite = { focus = mon_heavy_industry }
+		x = -1
+		y = 1
+		relative_position_id = mon_heavy_industry
+		cost = 5
+
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = SOV_finish_five_year_plan_2IC }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = { #TODO_Manu: This is just copy-pasted from the old focus -> Is this what we want?
+		
+		add_equipment_to_stockpile = {
+				type = convoy
+				amount = 200
+			}
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 1
+					free_building_slots = {
+						building = industrial_complex
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = SOV_finish_five_year_plan_2IC
+			}
+			
+
+			
+		}
+	}
+	focus = {
+		id = mon_supremacy
+
+		icon = GFX_focus_generic_support_the_left_right
+		prerequisite = { focus = mon_finish_the_five_year_plan }
+		x = -1
+		y = 1
+		relative_position_id = mon_finish_the_five_year_plan
+		cost = 5
+
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		
+		completion_reward = {
+			
+			random_owned_controlled_state = {
+					limit = {
+						# industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+						NOT = { has_state_flag = SOV_finish_five_year_plan_2IC }
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					set_state_flag = SOV_finish_five_year_plan_2IC
+				}
+			add_ideas =  mon_industry
+		}
+		
+	}
+	focus = {
+		id = mon_cooperation
+
+		icon = GFX_focus_chi_cooperation_with_the_communists
+		prerequisite = { focus = mon_finish_the_five_year_plan }
+		x = 1
+		y = 1
+		relative_position_id = mon_finish_the_five_year_plan
+		cost = 5
+
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		
+		completion_reward = {
+			
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = SOV_finish_five_year_plan_2IC
+			}
+			SOV = { random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 0
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = SOV_finish_five_year_plan_2IC
+			}
+			random_owned_controlled_state = {
+					limit = {
+						# industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+			
+			
+		}
+		
+	}
+	focus = {
+		id = mon_steal
+
+		icon = GFX_focus_generic_steel
+		prerequisite = { focus = mon_supremacy focus = mon_cooperation }
+		x = -3
+		y = 1
+		relative_position_id = mon_supremacy
+		cost = 5
+
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			330 = {
+				add_resource = {
+					type = steel
+					amount = 20
+				}
+			}
+		}
+		
+	}
+	focus = {
+		id = mon_Tungsten
+
+		icon = GFX_focus_generic_tungsten
+		prerequisite = { focus = mon_supremacy focus = mon_cooperation }
+		x = -1
+		y = 1
+		relative_position_id = mon_supremacy
+		cost = 5
+
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			330 = {
+				add_resource = {
+					type = Tungsten
+					amount = 10
+				}
+			}
+		}
+		
+	}
+	focus = {
+		id = mon_Chromium
+
+		icon = GFX_focus_generic_land_reclamation
+		prerequisite = { focus = mon_supremacy focus = mon_cooperation }
+		x = 1
+		y = 1
+		relative_position_id = mon_supremacy
+		cost = 5
+
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			330 = {
+				add_resource = {
+					type = Chromium
+					amount = 10
+				}
+			}
+		}
+		
+	}
+	focus = {
+		id = mon_research
+
+		icon = GFX_focus_research
+		prerequisite = { focus = mon_supremacy focus = mon_cooperation }
+		x = 3
+		y = 1
+		relative_position_id = mon_supremacy
+		cost = 5
+
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			add_research_slot = 1
+		}
+		
+	}
+	focus = {
+		id = mon_absolute_industry
+
+		icon = GFX_focus_generic_modernize_industry
+		prerequisite = { focus = mon_supremacy focus = mon_cooperation }
+		x = 5
+		y = 1
+		relative_position_id = mon_supremacy
+		cost = 5
+
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			random_owned_controlled_state = {
+					limit = {
+						# industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+		}
+		
+	}
+	focus = {
+		id = minor_cooperation
+
+		icon = GFX_focus_generic_communist_industry
+		prerequisite = { focus = mon_Chromium }
+		prerequisite = { focus = mon_steal }
+		prerequisite = { focus = mon_Tungsten }
+		prerequisite = { focus = mon_absolute_industry }
+		prerequisite = { focus =  mon_research}
+		x = 0
+		y = 1
+		relative_position_id = mon_Chromium
+		cost = 5
+
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+		
+			random_owned_controlled_state = {
+					limit = {
+						# industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 2
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+				}
+			add_ideas =  mon_factory 
+			SOV = {
+				random_owned_controlled_state = {
+					limit = {
+						# industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			
+		}
+		
+	}
+	focus = {
+		id = army
+		icon = GFX_goal_generic_army_doctrines
+		x = 12
+		y = 0
+		cost = 10
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+		}
+	}
+	focus = {
+		id = equipment_effortt
+		
+		mutually_exclusive = { focus = tank_1 }
+		icon = GFX_goal_generic_small_arms
+		prerequisite = { focus = army }
+		x = -1
+		y = 1
+		relative_position_id = army
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_artillery_bonus
+				bonus = 1.0
+				uses = 2
+				category = infantry_weapons
+				#category = artillery
+			}
+			add_ideas = mon_people
+		}
+	}
+	focus = {
+		
+		id = mech_infa
+		icon = GFX_goal_generic_army_motorized
+		prerequisite = { focus = equipment_effortt }
+		x = 0
+		y = 1
+		cost = 10
+		
+		relative_position_id = equipment_effortt
+
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = mech_inf
+				bonus = 1
+				category = motorized_equipment
+			}
+		}
+		
+		
+	}
+	
+	focus = {
+	
+		id = guns
+		icon = GFX_goal_generic_allies_build_infantry
+		prerequisite = { focus = mech_infa }
+		x = 0
+		y = 1
+		cost = 10
+		
+		relative_position_id = mech_infa
+
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			if = {
+				limit = { has_tech = infantry_weapons1 }
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = 10000
+					producer = MON
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment_0
+						amount = 10000
+						producer = MON
+					}
+				}
+			}
+		}
+	}
+	focus = {
+	
+		id = more_guns
+		icon = GFX_focus_generic_combined_arms
+		prerequisite = { focus = guns }
+		x = 0
+		y = 1
+		cost = 10
+		
+		relative_position_id = guns
+
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			if = {
+				limit = { has_tech = infantry_weapons1 }
+				add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = 20000
+					producer = MON
+				}
+				else = {
+					add_equipment_to_stockpile = {
+						type = infantry_equipment_0
+						amount = 20000
+						producer = MON
+					}
+				}
+			}
+		}
+	}
+	focus = {
+	
+		id = tank_1
+		icon = GFX_goal_generic_army_tanks
+		prerequisite = { focus = army }
+		mutually_exclusive = { focus = equipment_effortt }
+		x = 1
+		y = 1
+		relative_position_id = army
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = mon_superior_war_machines
+				bonus = 2
+				uses = 2
+				category = armor
+			}
+		}
+	}
+	focus = {
+		id = tank_2
+		
+		icon = GFX_goal_generic_army_artillery2
+		prerequisite = { focus = tank_1 }
+		x = 0
+		y = 1
+		relative_position_id = tank_1
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = artillery_bonus
+				bonus = 0.75
+				uses = 2
+				category = artillery
+			}
+		}
+	}
+	focus = {
+		id = tank_res_1
+		
+		icon = GFX_goal_generic_build_tank
+		prerequisite = { focus = tank_2 }
+		x = 0
+		y = 1
+		relative_position_id = tank_2
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			330 = {
+				add_resource = {
+					type = Tungsten
+					amount = 10
+				}
+			}
+		}
+	}
+	focus = {
+		id = tank_res_2
+		
+		icon = GFX_focus_generic_tank_production
+		prerequisite = { focus = tank_res_1 }
+		x = 0
+		y = 1
+		relative_position_id = tank_res_1
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+		
+			330 = {
+			
+				add_resource = {
+					type = steel
+					amount = 20
+				}
+			}
+		}
+	}
+	focus = {
+		
+		id = war_is_comming
+	
+		icon = GFX_focus_generic_total_war
+		prerequisite = { focus = tank_res_2 focus = more_guns }
+		x = -1
+		y = 1
+		relative_position_id = tank_res_2
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			330 = {
+				add_resource = {
+					type = steel
+					amount = 10
+				}
+			}
+			add_research_slot = 1
+		}
+		
+	}
+	
+	focus = {
+		mutually_exclusive = { focus = modernize_army }
+		id = cultivate_tradition
+		
+		icon = GFX_focus_generic_horse_studs
+		prerequisite = { focus = war_is_comming }
+		x = -1
+		y = 1
+		relative_position_id = war_is_comming
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = mon_spirit_of_great_khan_cultivated
+		}	
+	}	
+	
+	focus = {
+
+		id = modernize_army
+		icon = GFX_focus_SOV_builder_of_the_red_army
+		prerequisite = { focus = war_is_comming }
+		mutually_exclusive = { focus = cultivate_tradition }
+		x = 1
+		y = 1
+		relative_position_id = war_is_comming
+		cost = 10
+
+		search_filters = {  FOCUS_FILTER_RESEARCH }
+		
+		available_if_capitulated = yes
+
+		completion_reward = {
+			remove_ideas = mon_spirit_of_great_khan
+			add_ideas = mon_modernized_army
+		}		
+	}		
+	
+	focus = {
+		id = mon_politic
+
+		icon = GFX_goal_generic_political_pressure
+		x = 24
+		y = 0
+		cost = 10
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			
+		}
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+
+		
+
+		completion_reward = { 
+			SOV={
+			SOV_paranoia_low_decrease_effect = yes
+			add_political_power = 25
+			}
+		}
+
+	}
+	focus = {
+		id = internationalism
+		icon = GFX_goal_support_communism #icon = GFX_goal_tripartite_pact
+		prerequisite = { focus = mon_politic }
+		available = {
+			
+		}
+		x = 0
+		y = 1
+		relative_position_id = mon_politic
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL  }
+
+		available_if_capitulated = yes
+
+
+		ai_will_do = {
+			factor = 5
+			modifier = {
+				factor = 2
+				any_neighbor_country = {
+					is_major = yes
+					has_government = communism
+				}
+			}			
+			modifier = {
+				factor = 0
+				AND = {
+					is_historical_focus_on = yes
+					NOT = { has_government = communism }
+				}
+			}
+		}
+
+		completion_reward = {
+		SOV={
+			SOV_paranoia_low_decrease_effect = yes
+			}
+			add_timed_idea = {
+				idea = internationalism
+				days = 720
+			}
+		}
+	}
+	focus = {
+		id = cor
+		icon = GFX_goal_generic_dangerous_deal
+		x = 0
+		y = 1
+		relative_position_id = internationalism
+		prerequisite = { focus = internationalism }
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL  }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			SOV = {
+				SOV_paranoia_low_decrease_effect = yes
+				add_political_power = 25
+			}
+			add_ideas = idea_political_correctness
+		}
+	}
+	focus = {
+		id = indoctrination
+		icon = GFX_goal_generic_propaganda
+		prerequisite = { focus = cor }
+		x = 0
+		y = 1
+		relative_position_id = cor
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL  }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			SOV = {
+				SOV_paranoia_low_decrease_effect = yes
+			}
+			add_ideas = indoctrination_focus
+		}
+	}
+	focus = {
+		id = commissars
+		icon = GFX_goal_generic_military_deal
+		prerequisite = { focus = indoctrination }
+		available = {
+		}
+		x = 0
+		y = 1
+		relative_position_id = indoctrination
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL  }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = political_commissars_focus
+			if = {
+				limit = { has_government = fascism }
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.2
+				}
+			}
+			if = {
+				limit = { has_government = communism }
+				add_popularity = {
+					ideology = communism
+					popularity = 0.2
+				}
+			}
+		}
+	}
+	focus = {
+		id = soviet_mongolia
+		icon = GFX_focus_generic_join_comintern
+		prerequisite = { focus = commissars }
+		available = {
+		}
+		x = 0
+		y = 1
+		relative_position_id = commissars
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL  }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = mongloia_arms_discount
+		}
+	}
+	focus = {
+		id = factory_build
+		icon = GFX_focus_generic_full_employment
+		prerequisite = { focus = soviet_mongolia }
+		available = {
+		}
+		x = 0
+		y = 1
+		relative_position_id = soviet_mongolia
+		cost = 10
+	
+		search_filters = { FOCUS_FILTER_POLITICAL  }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_ideas = build_factory
+		}
+	}
+	focus = {
+		id = mon_industryy_1
+
+		icon = GFX_focus_generic_industry_1
+		prerequisite = { focus = factory_build  }
+		x = -3
+		y = 1
+		relative_position_id = factory_build
+		cost = 10
+
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
+		
+	}
+	focus = {
+		id = mon_industryy_2
+
+		icon = GFX_focus_generic_industry_2
+		prerequisite = { focus = factory_build  }
+		x = -1
+		y = 1
+		relative_position_id = factory_build
+		cost = 10
+
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
+		
+	}
+	focus = {
+		id = mon_industryy_3
+
+		icon = GFX_focus_generic_industry_3
+		prerequisite = { focus = factory_build  }
+		x = 1
+		y = 1
+		relative_position_id = factory_build
+		cost = 10
+
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}
+		
+	}
+	focus = {
+		id = mon_industryy_4
+
+		icon = GFX_focus_generic_mining_industry
+		prerequisite = { focus = factory_build  }
+		x = 3
+		y = 1
+		relative_position_id = factory_build
+		cost = 10
+
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			330 = {
+				add_resource = {
+					type = steel
+					amount = 10
+				}
+			}
+		}
+		
+	}
+	focus = {
+		id = independent
+
+		prerequisite = { focus = mon_industryy_1  }
+		prerequisite = { focus = mon_industryy_2  }
+		prerequisite = { focus = mon_industryy_3  }
+		prerequisite = { focus = mon_industryy_4  }
+		prerequisite = { focus = modernize_army focus = cultivate_tradition  }
+		
+		mutually_exclusive = { focus = go_with_sov }
+		icon = GFX_focus_ETH_freedom_at_gunpoint
+		x = -10
+		y = 1
+		cost = 10
+
+		relative_position_id = mon_industryy_1
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		complete_tooltip = {
+			every_state = {
+				limit = { 
+					has_state_flag = SOV_finish_five_year_plan_2IC 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = { #TODO_Manu: This is just copy-pasted from the old focus -> Is this what we want?
+			IF = {
+				limit = {
+					any_owned_state = {
+						is_controlled_by = ROOT 
+						industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+						NOT = { has_state_flag = SOV_finish_five_year_plan_2IC }
+					}
+				}
+				
+			}
+			ELSE = {
+				random_owned_controlled_state = {
+					limit = {
+						# industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = SOV_finish_five_year_plan_2IC
+				}
+			}
+			IF = {
+				limit = {
+					check_variable = { num_owned_states > 1}
+					any_owned_state = {
+						is_controlled_by = ROOT 
+						industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+						NOT = { has_state_flag = SOV_finish_five_year_plan_2IC }
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+						NOT = { has_state_flag = SOV_finish_five_year_plan_2IC }
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					
+				}
+			}
+			
+		}
+		
+	}
+	focus = {
+		id = cooperation_with_UK
+
+		prerequisite = { focus = independent  }
+		
+		icon = GFX_focus_chi_british_cooperation
+		x = 0
+		
+		y = 1
+		cost = 10
+
+		relative_position_id = independent
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			439 = {
+			add_resource = {
+					type = steel
+					amount = 10
+				}
+			}
+			
+		}
+		
+	}
+	
+	focus = {
+		id = UK_help_with_excav
+
+		prerequisite = { focus = cooperation_with_UK  }
+		
+		icon = GFX_focus_generic_resource_extraction
+		x = 0
+		
+		y = 1
+		cost = 10
+
+		relative_position_id = cooperation_with_UK
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			439 = {
+			add_resource = {
+					type = steel
+					amount = 10
+				}
+				
+			}
+			add_ideas=mongol_excav
+		}
+		
+	}
+	focus = {
+		id = develop_resource
+
+		prerequisite = { focus = UK_help_with_excav  }
+		
+		icon = GFX_focus_generic_modernize_industry
+		x = 0
+		
+		y = 1
+		cost = 10
+
+		relative_position_id = UK_help_with_excav
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			329 = {
+			add_resource = {
+					type = steel
+					amount = 10
+				}
+				
+			}
+		}
+		
+	}
+	
+	focus = {
+		id = glory_to_mongol_army_1
+
+		prerequisite = { focus = develop_resource  }
+		
+		icon = GFX_focus_generic_industry_1
+		x = 0
+		
+		y = 1
+		cost = 10
+
+		relative_position_id = develop_resource
+		complete_tooltip = {
+			
+		}
+
+		completion_reward = { #TODO_Manu: This is just copy-pasted from the old focus -> Is this what we want?
+			random_controlled_state = {
+					
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+		}
+		
+	}
+	
+	focus = {
+		id = glory_to_mongol_army_2
+
+		prerequisite = { focus = glory_to_mongol_army_1  }
+		
+		icon = GFX_focus_generic_military_mission
+		x = 0
+		
+		y = 1
+		cost = 10
+		complete_tooltip = {
+			every_state = {
+				limit = { has_state_flag = SOV_finish_five_year_plan_2IC }
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		relative_position_id = glory_to_mongol_army_1
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+				random_controlled_state = {
+					
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+		}
+		
+	}
+	
+	focus = {
+		id = go_with_sov
+
+		prerequisite = { focus = mon_industryy_1  }
+		prerequisite = { focus = mon_industryy_2  }
+		prerequisite = { focus = mon_industryy_3  }
+		prerequisite = { focus = mon_industryy_4  }
+		prerequisite = { focus = modernize_army focus = cultivate_tradition  }
+		mutually_exclusive = { focus = independent }
+		icon = GFX_focus_fra_loyalty_stalin
+		x = -8
+		y = 1
+		cost = 10
+
+		relative_position_id = mon_industryy_1
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		complete_tooltip = {
+			every_state = {
+				limit = { 
+					has_state_flag = SOV_finish_five_year_plan_2IC 
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+
+		completion_reward = { #TODO_Manu: This is just copy-pasted from the old focus -> Is this what we want?
+			IF = {
+				limit = {
+					any_owned_state = {
+						is_controlled_by = ROOT 
+						industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+						NOT = { has_state_flag = SOV_finish_five_year_plan_2IC }
+					}
+				}
+				
+			}
+			ELSE = {
+				random_owned_controlled_state = {
+					limit = {
+						# industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					set_state_flag = SOV_finish_five_year_plan_2IC
+				}
+			}
+			IF = {
+				limit = {
+					check_variable = { num_owned_states > 1}
+					any_owned_state = {
+						is_controlled_by = ROOT 
+						industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+						NOT = { has_state_flag = SOV_finish_five_year_plan_2IC }
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						industrial_complex > 0
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+						NOT = { has_state_flag = SOV_finish_five_year_plan_2IC }
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					
+				}
+			}
+			
+		}
+		
+	}
+	focus = {
+		id = soviet_excav_1
+
+		prerequisite = { focus = go_with_sov  }
+		icon = GFX_focus_generic_steel
+		x = 0
+		
+		y = 1
+		cost = 10
+
+		relative_position_id = go_with_sov
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			408 = { add_resource = {
+					type = steel
+					amount = 20
+				}
+			}
+			
+		}
+		
+	}
+	focus = {
+		id = give_up_freedom
+
+		prerequisite = { focus = soviet_excav_1  }
+		icon = GFX_focus_chi_cooperation_with_the_communists
+		x = 0
+		
+		y = 1
+		cost = 10
+
+		relative_position_id = soviet_excav_1
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			40 = { add_resource = {
+					type = steel
+					amount = 20
+				}
+			}
+			add_ideas = good_aliance
+			
+		}
+		
+	}
+	
+	
+	focus = {
+		id = train_army_with_sov
+
+		prerequisite = { focus = give_up_freedom  }
+		icon = GFX_focus_SOV_mobilization_plan
+		x = 0
+		
+		y = 1
+		cost = 10
+
+		relative_position_id = give_up_freedom
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			
+			army_experience = 100
+			
+		}
+		
+	}
+	
+	
+	
+	focus = {
+		id = develop_territory
+
+		prerequisite = { focus = train_army_with_sov  }
+		icon = GFX_focus_generic_industry_2
+		x = 0
+		
+		y = 1
+		cost = 10
+
+		relative_position_id = train_army_with_sov
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			add_ideas = mongol_develop
+		}
+		
+	}
+	
+	focus = {
+		id = sell_tannu_tuva
+
+		prerequisite = { focus = develop_territory  }
+		icon = GFX_focus_generic_concessions
+		x = 0
+							 
+		y = 1
+		cost = 10
+
+		relative_position_id = develop_territory
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			SOV = {
+				add_state_core  = 329
+				transfer_state  = 329
+			}
+			
+			add_offsite_building = { type = industrial_complex level = 4 }
+			
+			add_ideas=mongol_excav
+		}
+		
+	}
+	
+	
+	focus = {
+		id = soviet_rubber
+
+		prerequisite = { focus = sell_tannu_tuva focus = glory_to_mongol_army_2  }
+		icon = GFX_focus_generic_rubber
+		x = 1
+		
+		y = 1
+		cost = 10
+
+		relative_position_id = glory_to_mongol_army_2
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			576 = { add_resource = {
+					type = rubber
+					amount = 10
+				}
+			}
+		}
+		
+	}
+	
+	focus = {
+		id = soviet_rubber_2
+
+		prerequisite = { focus = soviet_rubber  }
+		icon = GFX_focus_BRA_rubber_war
+		x = 0
+		
+		y = 1
+		cost = 10
+
+		relative_position_id = soviet_rubber
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			571 = { add_resource = {
+					type = rubber
+					amount = 5
+				}
+			}
+			330 = { add_resource = {
+					type = rubber
+					amount = 5
+				}
+			}
+		}
+		
+	}
+	
+	focus = {
+		id = soviet_rubber_3
+
+		prerequisite = { focus = soviet_rubber_2  }
+		icon = GFX_focus_SOV_merge_plants
+		x = 0
+		
+		y = 1
+		cost = 10
+
+		relative_position_id = soviet_rubber_2
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			881 = { add_resource = {
+					type = rubber
+					amount = 5
+				}
+			}
+			330 = { add_resource = {
+					type = rubber
+					amount = 5
+				}
+			}
+		}
+		
+	}
+	
+	focus = {
+		id = aid_soviet
+
+		prerequisite = { focus = soviet_rubber_3  }
+		icon = GFX_goal_molotov_ribbentrop_pact
+		x = 0
+		
+		y = 1
+		cost = 10
+
+		relative_position_id = soviet_rubber_3
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			SOV = { add_equipment_to_stockpile = {
+					type = infantry_equipment_1
+					amount = 10000
+					producer = SOV
+				}
+			}
+		}
+		
+	}
+	
+	focus = {
+		id = soviet_resource
+
+		prerequisite = { focus = aid_soviet  }
+		icon = GFX_goal_generic_production
+		x = 0
+		
+		y = 1
+		cost = 10
+
+		relative_position_id = aid_soviet
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			SOV = { 
+				add_ideas = soviet_mongol_excav
+				
+				
+			}
+			add_ideas = soviet_mongol_excav
+		}
+		
+	}
+	
+	focus = {
+		id = meet_with_stalin
+
+		prerequisite = { focus = soviet_resource  }
+		icon = GFX_focus_fra_loyalty_stalin
+		x = 0
+		
+		y = 1
+		cost = 10
+
+		relative_position_id = soviet_resource
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			SOV = { 
+				add_political_power = 50
+				
+				
+			}
+		}
+			
+	}
+	focus = {
+		id = united_with_soviet
+
+		prerequisite = { focus = meet_with_stalin }
+		icon = GFX_goal_generic_national_unity
+		x = 0
+							 
+		y = 1
+		cost = 10
+
+		relative_position_id = meet_with_stalin
+		
+		search_filters = {FOCUS_FILTER_INDUSTRY}
+		completion_reward ={
+			SOV = {
+				add_state_core = 329
+				add_state_core = 820
+				add_state_core = 330
+				add_state_core = 819
+				add_state_core = 817
+				add_state_core = 818
+				add_state_core = 760
+				add_state_core = 618
+				add_state_core = 617
+				add_state_core = 759
+				add_state_core = 287
+				add_state_core = 619
+				MON = {
+				transfer_units_fraction = {
+					target = SOV
+					size = 1
+					stockpile_ratio = 1
+					army_ratio = 1
+					navy_ratio = 1
+					air_ratio = 1
+					keep_unit_leaders_trigger = {
+						always = no
+					}
+				}
+			}
+			SOV = {
+				annex_country = {
+					target = MON
+					transfer_troops = yes
+				}
+			}
+			}
+			SOV = {
+				add_offsite_building = { type = industrial_complex level = 7 }
+			}
+		}
+		
+	}
+	
+}

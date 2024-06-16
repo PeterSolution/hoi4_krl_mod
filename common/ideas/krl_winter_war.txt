@@ -1,0 +1,20 @@
+ideas = {
+	country = {
+		SOV_winter_war = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			picture = FIN_opposition_to_winter_war	
+			cancel = {
+				SOV = {
+					has_war_with = FIN
+				}
+				has_global_flag = krl_winter_war_ended
+			}
+			modifier = {
+				stability_factor = 0.1
+			}
+		}
+	}
+}

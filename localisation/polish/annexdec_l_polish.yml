@@ -1,0 +1,37 @@
+﻿l_polish:
+    annex_miniors:0 "Decyzje do aneksji państw"
+    annex_miniors_eng:0 "Decyzje do aneksji państw"
+    annex_miniors_usa:0 "Decyzje do aneksji państw"
+    annex_miniors_jap:0 "Decyzje do aneksji państw"
+    annex_miniors_sov:0 "Decyzje do aneksji państw"      
+
+    annex_hun:0 "Zaanektuj Węgry"
+    annex_bul:0 "Zaanektuj Bułgarie"
+    annex_fin:0 "Zaanektuj przemysł fiński"
+    back_annex_fin:0 "Oddaj przemysł fiński"
+    annex_rom:0 "Zaanektuj Rumunie"
+    annex_bul_to_ita:0 "Zaanektuj Bułgarie do Włoch"
+    annex_rom_to_ita:0 "Zaanektuj Rumunie do Włoch"
+    annex_bul_to_rom:0 "Zaanektuj Bułgarie do Rumunii"
+    annex_rom_to_bul:0 "Zaanektuj Rumunie to Bułgarii"
+    
+    annex_manchuko:0 "Zaanektuj Manchuko"
+    annex_siam:0 "Zaanektuj Syjam"
+    
+    annex_mexico:0 "Zaanektuj Meksyk"
+    
+    annex_can:0 "Zaanektuj Kanadę"
+    annex_can_to_saf:0 "Zaanektuj Kanadę do Południowej Afryki"
+    annex_saf:0 "Zaanektuj Południową Afrykę"
+    annex_saf_to_can:0 "Zaanektuj Południową Afrykę do Kanady"
+    annex_saf_to_raj:0 "Zaanektuj Południową Afrykę do Indii"
+    annex_saf_to_ast:0 "Zaanektuj Południową Afrykę do Australii"
+    annex_raj:0 "Zaanektuj Indie"
+    annex_raj_to_ast:0 "Zaanektuj Indie do Australii"
+    annex_ast:0 "Zaanektuj Australię"
+    annex_ast_to_raj:0 "Zaanektuj Australię do Indii"
+    annex_nzl:0 "Zaanektuj Nową Zelandię"
+    annex_nzl_to_raj:0 "Zaanektuj Zaanektuj Nową Zelandię do Indii"
+    annex_nzl_to_ast:0 "Zaanektuj Zaanektuj Nową Zelandię do Australii"
+    
+    annex_mon_to_sov:0 "Zaanektuj Mongolię"      

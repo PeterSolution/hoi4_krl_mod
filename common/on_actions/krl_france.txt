@@ -1,0 +1,7 @@
+on_actions = {	
+	on_monthly_GER = {
+		effect = {
+			FRA = { FRA_morale_level_up = yes }
+		}
+	}
+}

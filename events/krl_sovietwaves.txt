@@ -1,0 +1,135 @@
+add_namespace = kalachsov
+
+
+# Event for Sov: No Step back!
+
+# Event for Sov: No Step Back, Mobilization wave
+country_event = {
+	id = kalachsov.3
+	title = kalachsov.1.t
+	desc = kalachsov.3.desc
+	picture = GFX_report_event_soviet_soldiers
+
+	
+	is_triggered_only = yes
+
+	option = {
+		name = kalachsov.3.a
+
+		division_template = {
+			name = "Strelki"
+			priority = 0
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 0 y = 3 }
+
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+				infantry = { x = 1 y = 3 }	
+				
+				infantry = { x = 2 y = 0 }
+				infantry = { x = 2 y = 1 }								
+
+			}
+			support = {
+				recon = { x = 0 y = 1 }
+			}
+		}	
+	
+		every_state = {
+			limit = {	
+				AND = {
+					any_neighbor_state = { OR = { is_controlled_by = GER is_controlled_by = ROM is_controlled_by = HUN is_controlled_by = FIN is_controlled_by = ITA is_controlled_by = BUL  is_controlled_by = SPR is_controlled_by = VIC is_controlled_by = YUG} }
+					is_controlled_by = SOV
+				}
+			}
+			create_unit = {
+				division = "division_template = \"Strelki\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+				owner = SOV
+			}
+			create_unit = {
+				division = "division_template = \"Strelki\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+				owner = SOV
+			}
+			create_unit = {
+				division = "division_template = \"Strelki\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+				owner = SOV
+			}
+			create_unit = {
+				division = "division_template = \"Strelki\" start_experience_factor = 0.0 start_equipment_factor = 1.0"
+				owner = SOV
+			}							
+		}
+	}
+}
+
+# Event for Sov: No Step Back, Mobilization wave
+country_event = {
+	id = kalachsov.4
+	title = kalachsov.2.t
+	desc = kalachsov.2.desc
+	picture = GFX_report_event_soviet_soldiers
+
+	
+	is_triggered_only = yes
+
+	option = {
+		name = kalachsov.3.a
+
+		division_template = {
+			name = "Strelki"
+			priority = 0
+			regiments = {
+				infantry = { x = 0 y = 0 }
+				infantry = { x = 0 y = 1 }
+				infantry = { x = 0 y = 2 }
+				infantry = { x = 0 y = 3 }
+
+				infantry = { x = 1 y = 0 }
+				infantry = { x = 1 y = 1 }
+				infantry = { x = 1 y = 2 }
+				infantry = { x = 1 y = 3 }	
+				
+				infantry = { x = 2 y = 0 }
+				infantry = { x = 2 y = 1 }								
+
+			}
+			support = {
+				anti_air = { x = 0 y = 0 }
+				recon = { x = 0 y = 1 }
+				anti_tank = { x = 0 y = 2 }
+			}
+		}	
+	
+		every_state = {
+			limit = {	
+				AND = {
+					any_neighbor_state = { OR = { is_controlled_by = GER is_controlled_by = ROM is_controlled_by = HUN is_controlled_by = FIN is_controlled_by = ITA is_controlled_by = BUL  is_controlled_by = SPR is_controlled_by = VIC is_controlled_by = YUG} }
+					is_controlled_by = SOV
+				}
+			}
+			create_unit = {
+				division = "division_template = \"Strelki\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+				owner = SOV
+			}
+			create_unit = {
+				division = "division_template = \"Strelki\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+				owner = SOV
+			}
+			create_unit = {
+				division = "division_template = \"Strelki\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+				owner = SOV
+			}
+			create_unit = {
+				division = "division_template = \"Strelki\" start_experience_factor = 0.4 start_equipment_factor = 1.0"
+				owner = SOV
+			}							
+		}
+
+		add_timed_idea = { idea = SOV_No_Step_Back days = 180 }
+		set_country_flag = SOV_no_step_back_flag	
+	}
+}

@@ -1,0 +1,420 @@
+add_namespace = iran_front
+add_namespace = siam
+add_namespace = join_allies
+add_namespace = bogChina
+add_namespace = increase_idea
+add_namespace = fix
+add_namespace = colab
+
+#siam events
+country_event = {
+	id = siam.0 
+	title = siam.0.a
+	desc = siam.0.b
+	picture = GFX_report_event_japanese_siam_politicians
+
+	is_triggered_only = yes
+
+	fire_only_once = yes 
+	
+	immediate = {
+		hidden_effect = {
+			JAP = {
+				add_to_faction = SIA
+			}
+			USA = {
+				diplomatic_relation = {
+					country = SIA
+					relation = guarantee
+					active = no
+				}
+			}
+		}
+		
+	}
+	option = { 
+		name = siam.0.e
+
+		JAP = { add_to_faction = SIA }
+		SIA = {
+			country_event = { id = siam.3 hours = 0} 
+			transfer_state = 741
+			transfer_state = 670
+			transfer_state = 286
+			transfer_state = 671
+		}
+	}
+	option = { 
+		name = siam.0.d
+
+		JAP = { add_to_faction = SIA }
+		SIA = {
+			country_event = { id = siam.1 hours = 0} 
+			transfer_state = 741
+			transfer_state = 670
+		}
+	}
+	option = { 
+		name = siam.0.c
+
+		SIA = {
+			country_event = { id = siam.2 hours = 0} 
+		}
+
+		trigger = {
+			is_ai = no
+		}
+	}
+
+
+}
+country_event = {
+	id = siam.1 
+	title = siam.1.a
+	desc = siam.1.b
+	picture = GFX_report_event_japanese_siam_politicians
+
+	is_triggered_only = yes
+
+	fire_only_once = yes 
+
+	option = {
+		name = siam.1.c
+		add_opinion_modifier = { target = JAP modifier = medium_increase }
+	}
+}
+country_event = {
+	id = siam.2 
+	title = siam.2.a
+	desc = siam.2.b
+	picture = GFX_report_event_japanese_siam_politicians
+
+	is_triggered_only = yes
+
+	fire_only_once = yes 
+
+	option = {
+		name = siam.2.c
+		add_opinion_modifier = { target = JAP modifier = medium_decrease }
+	}
+}
+country_event = {
+	id = siam.3 
+	title = siam.3.a
+	desc = siam.3.b
+	picture = GFX_report_event_japanese_siam_politicians
+
+	is_triggered_only = yes
+
+	fire_only_once = yes 
+
+	option = {
+		name = siam.3.c
+		add_opinion_modifier = { target = JAP modifier = huge_increase }
+	}
+}
+
+#Fall of China
+country_event = {
+	id = bogChina.1
+	title = bogChina.1.a
+	desc = bogChina.1.b
+
+	picture = GFX_report_event_japanese_parade
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = CHI_capitulated
+			every_country = {
+				limit = {
+					is_in_faction_with = CHI
+					NOT = {
+						is_in_faction_with = ENG
+					}
+				}
+				set_cosmetic_tag = JAP_puppet
+			}
+		}
+	}
+	
+	#Japan will control
+	option = {
+		name = bogChina.1.c
+
+		ai_chance = {
+			factor = 2
+		}
+
+		JAP = {
+			annex_country = { target = CHI transfer_troops = no }
+			annex_country = { target = SHX transfer_troops = no }
+			annex_country = { target = PRC transfer_troops = no }
+			annex_country = { target = XSM transfer_troops = no }
+			annex_country = { target = YUN transfer_troops = no }
+			annex_country = { target = GXC transfer_troops = no }			
+			annex_country = { target = SIK transfer_troops = no }			
+		}
+	}
+
+	#manchu will control
+	option = {
+		name = bogChina.1.d
+
+		ai_chance = {
+			factor = 3
+		}
+		trigger = {
+			MAN = {
+				exists = yes
+			}
+		}
+
+		JAP = {
+			hidden_effect = {
+				release = SHX
+				release = PRC
+				release = XSM
+				release = CHI
+				release = YUN
+				release = GXC
+			}
+			
+			
+			MAN = {
+				annex_country = { target = SHX transfer_troops = no }
+				annex_country = { target = PRC transfer_troops = no }
+				annex_country = { target = XSM transfer_troops = no }
+				annex_country = { target = YUN transfer_troops = no }
+				annex_country = { target = GXC transfer_troops = no }			
+				annex_country = { target = SIK transfer_troops = no }			
+				annex_country = { target = CHI transfer_troops = no }			
+			}
+
+			give_resource_rights = { receiver = JAP state = 599 }
+			give_resource_rights = { receiver = JAP state = 602 }
+			give_resource_rights = { receiver = JAP state = 750 }
+			give_resource_rights = { receiver = JAP state = 605 }
+			give_resource_rights = { receiver = JAP state = 601 }
+			give_resource_rights = { receiver = JAP state = 619 }
+			give_resource_rights = { receiver = JAP state = 283 }
+			give_resource_rights = { receiver = JAP state = 622 }
+			give_resource_rights = { receiver = JAP state = 606 }
+			give_resource_rights = { receiver = JAP state = 325 }
+			
+		}
+		
+		#take states
+		JAP = {
+			transfer_state = 608
+			transfer_state = 614
+			transfer_state = 597
+			transfer_state = 743
+			transfer_state = 598
+			transfer_state = 613
+			transfer_state = 596 
+			transfer_state = 595
+			transfer_state = 593
+			transfer_state = 592
+			transfer_state = 729
+			transfer_state = 594
+			transfer_state = 591
+			transfer_state = 609
+			transfer_state = 745
+		}
+	}
+
+	#china will control
+	option = {
+		name = bogChina.1.e
+
+		ai_chance = {
+			factor = 1
+		}
+		
+		JAP = {
+			hidden_effect = {
+				release = SHX
+				release = PRC
+				release = XSM
+				release = CHI
+				release = YUN
+				release = GXC
+
+				puppet = CHI
+				add_to_faction = CHI	
+			}
+			
+			
+			set_autonomy = { target = CHI autonomy_state = autonomy_integrated_puppet }
+
+			CHI = {
+				annex_country = { target = SHX transfer_troops = no }
+				annex_country = { target = PRC transfer_troops = no }
+				annex_country = { target = XSM transfer_troops = no }
+				annex_country = { target = YUN transfer_troops = no }
+				annex_country = { target = GXC transfer_troops = no }			
+				annex_country = { target = SIK transfer_troops = no }			
+			}
+
+			give_resource_rights = { receiver = JAP state = 599 }
+			give_resource_rights = { receiver = JAP state = 602 }
+			give_resource_rights = { receiver = JAP state = 750 }
+			give_resource_rights = { receiver = JAP state = 605 }
+			give_resource_rights = { receiver = JAP state = 601 }
+			give_resource_rights = { receiver = JAP state = 619 }
+			give_resource_rights = { receiver = JAP state = 283 }
+			give_resource_rights = { receiver = JAP state = 622 }
+			give_resource_rights = { receiver = JAP state = 606 }
+			give_resource_rights = { receiver = JAP state = 325 }
+		}
+		
+		#take states
+		JAP = {
+			transfer_state = 608
+			transfer_state = 614
+			transfer_state = 597
+			transfer_state = 743
+			transfer_state = 598
+			transfer_state = 613
+			transfer_state = 596 
+			transfer_state = 595
+			transfer_state = 593
+			transfer_state = 592
+			transfer_state = 729
+			transfer_state = 594
+			transfer_state = 591
+			transfer_state = 609
+			transfer_state = 745
+		}
+	}
+	option = {
+		name = bogChina.1.f
+
+		ai_chance = {
+			factor = 3
+		}
+		trigger = {
+			MAN = {
+				exists = yes
+			}
+		}
+
+		JAP = {
+			hidden_effect = {
+				release = SHX
+				release = XSM
+				release = SIK
+			}
+			
+			
+			MAN = {
+				annex_country = { target = SHX transfer_troops = no }
+				annex_country = { target = XSM transfer_troops = no }		
+				annex_country = { target = SIK transfer_troops = no }					
+			}			
+		}
+		
+		#take states
+		JAP = {
+			transfer_state = 608
+			transfer_state = 614
+			transfer_state = 597
+			transfer_state = 743
+			transfer_state = 598
+			transfer_state = 613
+			transfer_state = 596 
+			transfer_state = 595
+			transfer_state = 593
+			transfer_state = 592
+			transfer_state = 729
+			transfer_state = 594
+			transfer_state = 591
+			transfer_state = 609
+			transfer_state = 745
+		}
+	}
+}
+
+#excavation idea swap
+country_event = {
+	id = increase_idea.3
+	title = increase_idea.3.a
+	desc = increase_idea.3.b
+	picture = GFX_report_event_hungary_refused
+
+	is_triggered_only = yes
+
+	option = { 
+		name = increase_idea.3.c
+
+		NEU = {
+			country_event = { id = increase_idea.3 days = 730 }
+		}
+	}
+}
+
+#axis - cap
+country_event = {
+	id = fix.0
+	title = fix.0.a
+	desc = fix.0.b
+	picture = GFX_report_event_hungary_refused
+
+	is_triggered_only = yes
+
+	option = { 
+		name = fix.0.c
+
+		axis_capitulation_peace_deal = yes
+	}
+}
+
+#comintern - cap
+country_event = {
+	id = fix.1
+	title = fix.1.a
+	desc = fix.1.b
+	picture = GFX_report_event_hungary_refused
+
+	is_triggered_only = yes
+
+	option = { 
+		name = fix.1.c
+
+		comintern_capitulation_peace_deal = yes
+	}
+}
+
+#jap - cap
+country_event = {
+	id = fix.2
+	title = fix.2.a
+	desc = fix.2.b
+	picture = GFX_report_event_hungary_refused
+
+	is_triggered_only = yes
+
+	option = { 
+		name = fix.2.c
+
+		jap_capitulation_peace_deal = yes
+	}
+}
+
+#SPCW - cap
+country_event = {
+	id = fix.4
+	title = fix.4.a
+	desc = fix.4.b
+	picture = GFX_report_event_hungary_refused
+
+	is_triggered_only = yes
+
+	option = { 
+		name = fix.4.c
+
+		SPR_revival = yes
+	}
+}

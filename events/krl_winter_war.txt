@@ -1,0 +1,109 @@
+add_namespace = krl_winter_war_event
+
+news_event = {
+	id = krl_winter_war_event.1
+	title = krl_winter_war_event.1.t
+	desc = krl_winter_war_event.1.desc
+	picture = GFX_news_event_FIN_armistice_of_moscow_negotiations
+	
+	major = yes
+
+	trigger = {
+		has_global_flag = krl_winter_war_stalemate
+		NOT = { has_global_flag = krl_winter_war_stalemate_set }
+	}
+
+	mean_time_to_happen = {
+		days = 2
+	}
+
+	immediate = {
+		set_global_flag = krl_winter_war_stalemate_set
+	}
+
+	option = {
+		name = krl_winter_war_event.1.a
+		trigger = {
+			tag = SOV
+		}
+	}
+	option = {
+		name = krl_winter_war_event.1.b
+		trigger = {
+			tag = FIN
+		}
+	}		
+	option = {
+		name = krl_winter_war_event.1.c
+		trigger = {
+			NOT = {
+				tag = SOV
+				tag = FIN
+			}
+		}
+	}	
+}
+
+news_event = {
+	id = krl_winter_war_event.2
+	title = krl_winter_war_event.2.t
+	desc = krl_winter_war_event.2.desc
+	picture = GFX_news_event_FIN_armistice_of_moscow_negotiations
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = krl_winter_war_event.2.a
+		trigger = {
+			tag = SOV
+		}
+	}
+	option = {
+		name = krl_winter_war_event.2.b
+		trigger = {
+			tag = FIN
+		}
+	}		
+	option = {
+		name = krl_winter_war_event.2.c
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = FIN
+			}
+		}
+	}	
+}
+
+news_event = {	
+	id = krl_winter_war_event.3
+	title = krl_winter_war_event.3.t
+	desc = krl_winter_war_event.3.desc
+	picture = GFX_news_event_FIN_armistice_of_moscow_negotiations
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = krl_winter_war_event.3.a
+		trigger = {
+			tag = SOV
+		}
+	}
+	option = {
+		name = krl_winter_war_event.3.b
+		trigger = {
+			tag = FIN
+		}
+	}		
+	option = {
+		name = krl_winter_war_event.3.c
+		trigger = {
+			NOT = {
+				TAG = SOV
+				TAG = FIN
+			}
+		}
+	}	
+}
